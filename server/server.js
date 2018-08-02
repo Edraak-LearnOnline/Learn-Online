@@ -25,7 +25,7 @@ app.use('/courseController',courseRouter);
 app.use('/adminController',adminRouter);
 
 
-app.get('*', function (req, res){
+app.get('/*', function (req, res){
     res.sendFile(path.resolve(__dirname, '../react-client/dist', 'index.html'));
 })
 module.exports = app;
