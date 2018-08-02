@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var mongoUri = 'mongodb://TalOmari:talomari@1993@ds135963.mlab.com:35963/learn-online';
+var mongoUri = 'mongodb://Tal:TalOmari123@ds123080.mlab.com:23080/learnonline';
 // Connect Mongoose to our local MongoDB 
 mongoose.connect( mongoUri, { useMongoClient: true });
 var db = mongoose.connection;
