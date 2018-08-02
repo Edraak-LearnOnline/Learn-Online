@@ -1,24 +1,25 @@
 import React from 'react'
+import { Grid, TextField, Button, Card } from "@material-ui/core"
 
 class Signup extends React.Component {
-		 constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
-    	userName: '',
-    	fullName: '',
-    	email: '',
-    	password: ''
+      userName: '',
+      fullName: '',
+      email: '',
+      password: ''
     }
     this.onChange = this.onChange.bind(this)
     this.signup = this.signup.bind(this)
   }
-  onChange (e) {
+  onChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
-  signup () {
+  signup() {
     var that = this
     var obj = {
       userName: this.state.userName,
@@ -32,7 +33,7 @@ class Signup extends React.Component {
       type: 'POST',
       data: obj,
       success: function (data) {
-        console.log(data)
+        window.location.href = '/profile'
       },
       error: function (err) {
         console.log(err)
@@ -41,23 +42,63 @@ class Signup extends React.Component {
     })
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <h1>Signup Page</h1>
-        <h3>Full name</h3>
-        <input name='fullName' type='text' onChange={this.onChange} />
-        <h3>user name</h3>
-        <input name='userName' type='text' onChange={this.onChange} />
-        <h3>email</h3>
-        <input name='email' type='text' onChange={this.onChange} />
-        <h3>password</h3>
-        <input name='password' type='password' onChange={this.onChange} />
+        <Card style={{
+          width: 300, textAlign: "center",
+          padding: 20,
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          position: 'absolute',
 
-        <br />
-        <br />
-        <button onClick={() => this.signup()}>submit</button>
+        }}>
+          <Grid container justify="space-around" alignContent="center" direction="column">
+            <Grid item style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <TextField style={{ width: "100%", textAlign: "center" }}
+                onChange={this.onChange}
+                name='fullName'
+                required
+                label="Full Name"
+                placeholder="Full Name" />
+            </Grid>
+            <Grid item style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <TextField style={{ width: "100%", textAlign: "center" }}
+                onChange={this.onChange}
+                name='userName'
+                required
+                label="User Name"
+                placeholder="User Name" />
+            </Grid>
+            <Grid item style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <TextField style={{ width: "100%", textAlign: "center" }}
+                onChange={this.onChange}
+                name='email'
+                required
+                label="Email"
+                placeholder="Email" />
+            </Grid>
+            <Grid item style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <TextField style={{ width: "100%", textAlign: "center" }}
+                onChange={this.onChange}
+                name='password'
+                required
+                type='password'
+                label="Password"
+                placeholder="Password" />
+            </Grid>
+            <Grid item style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={this.signup}>
+                SIGN UP</Button>
+            </Grid>
+          </Grid>
+        </Card>
       </div>
+
     )
   }
 }
