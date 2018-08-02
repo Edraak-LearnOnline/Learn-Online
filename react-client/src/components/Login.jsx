@@ -1,25 +1,44 @@
 import React from 'react'
+import { Card, Grid, TextField, Button } from '@material-ui/core';
+import { GoogleLogin } from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+
+
+
+const responseFacebook = (response) => {
+
+  response.name?
+  window.location.href = '/profile':
+  window.location.href = "/login"
+}
+
+const responseGoogle = (response) => {
+  response.El?
+  window.location.href = '/profile':
+  window.location.href = "/login"  
+}
+
+
 
 class Signup extends React.Component {
-		 constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
-    	userName: '',
-    	fullName: '',
-    	email: '',
-    	password: ''
+      userName: '',
+      fullName: '',
+      email: '',
+      password: ''
     }
     this.onChange = this.onChange.bind(this)
     this.loginAdmin = this.loginAdmin.bind(this)
   }
-  onChange (e) {
+  onChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
-  loginAdmin () {
-    var that = this
+  loginAdmin() {
     var obj = {
       userName: this.state.userName,
       password: this.state.password
@@ -29,44 +48,90 @@ class Signup extends React.Component {
       type: 'POST',
       data: obj,
       success: function (data) {
-      // that.setState({
-      //   auth: true
-      // })
-        console.log(data)
+      
+        window.location.href = '/profile'
       },
       error: function (err) {
-        alert('not here ')
+        alert('not here', err)
       }
     })
   }
 
-  //   componentDidMount(){
-  //   var that = this
-  //   $.ajax({
-  //     url:'/adminController/isLogin',
-  //     type:'GET',
-  //     success:function(data){
-  //     console.log(data )
-  //     console.log('data' )
-  //     },
-  //     error:function(err){
-  //       console.log('err',err);
-  //     }
-  //   });
-  // }
-
-  render () {
+  render() {
     return (
       <div>
-        <h1>Login Page</h1>
-        <h3>username</h3>
-        <input name='userName' type='text' onChange={this.onChange} />
-        <h3>password</h3>
-        <input name='password' type='password' onChange={this.onChange} />
+        <Card style={{
+          width: 300, textAlign: "center",
+          padding: 20,
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          position: 'absolute',
 
-        <br />
-        <br />
-        <button onClick={() => this.loginAdmin()}>submit</button>
+        }}>
+          <Grid container justify="space-around" alignContent="center" direction="column" style={{textAlign:"center"}}>
+            <GoogleLogin
+              clientId="113021884886-314ovegh53pf00d99jn8moc2bj1la6sq.apps.googleusercontent.com"
+              buttonText= "Login using Google"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              style={{
+                width: "91%",
+                height: "50px",
+                backgroundColor: "orange",
+                color: "white",
+                borderRadius: 5,
+                outline: "none",
+                marginBottom: "10px",
+                fontSize: "15px",
+                marginLeft:"10px"
+              }}
+            />
+            <FacebookLogin
+              appId="560666954348661"
+              autoLoad={false}
+              fields="name,email,picture"
+              callback={responseFacebook}
+              icon="fa-facebook"
+              style={{
+                backgroundColor: "blue",
+                color: "white",
+                borderRadius: 5,
+                outline: "none",
+                marginTop: "10px",
+                height:"5%"
+                
+              }}
+              
+
+
+            />
+            <Grid item style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <TextField style={{ width: "100%", textAlign: "center" }}
+                onChange={this.onChange}
+                name='userName'
+                required
+                label="User Name"
+                placeholder="User Name" />
+            </Grid>
+            <Grid item style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <TextField style={{ width: "100%", textAlign: "center" }}
+                onChange={this.onChange}
+                name='password'
+                required
+                type='password'
+                label="Password"
+                placeholder="Password" />
+            </Grid>
+            <Grid item style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={this.loginAdmin}>
+                LOGIN</Button>
+            </Grid>
+          </Grid>
+        </Card>
       </div>
     )
   }
