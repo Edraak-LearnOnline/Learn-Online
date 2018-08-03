@@ -5,18 +5,7 @@ import FacebookLogin from 'react-facebook-login';
 
 
 
-const responseFacebook = (response) => {
 
-  response.name?
-  window.location.href = '/profile':
-  window.location.href = "/login"
-}
-
-const responseGoogle = (response) => {
-  response.El?
-  window.location.href = '/profile':
-  window.location.href = "/login"  
-}
 
 
 
@@ -135,5 +124,20 @@ class Signup extends React.Component {
       </div>
     )
   }
+}
+
+
+
+const responseFacebook = (response) => {
+
+  response.name?
+  window.location.href = '/profile':
+  window.location.href = "/login"
+}
+
+const responseGoogle = (response) => {
+  response.El?
+  window.location.href = '/profile':
+  window.location.href = "/login"  
 }
 export default Signup
