@@ -70,7 +70,7 @@ class Login extends React.Component {
         }}>
           <Grid container justify="space-around" alignContent="center" direction="column" style={{textAlign:"center"}}>
             <GoogleLogin
-              clientId="113021884886-314ovegh53pf00d99jn8moc2bj1la6sq.apps.googleusercontent.com"
+              clientId="113021884886-9ltf0r1an4u66cmdi3f7t28sdn2dqp02.apps.googleusercontent.com"
               buttonText= "Login using Google"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}

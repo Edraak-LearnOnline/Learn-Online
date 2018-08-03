@@ -24,7 +24,7 @@ Online learning website.
 
 ##  Installation:
 
- - Get a copy of the repo $ git clone : 
+ - Get a copy of the repo $ git clone : https://github.com/Talomari/Learn-Online.git
 
 -  install all dependencies found in 'package.json' file `$ npm install`.
 
@@ -37,7 +37,7 @@ Online learning website.
 
 ## Deployment
 
-You can see a demo of the app in **Heroku** 
+You can see a demo of the app in **Heroku**  `https://task-learn-online.herokuapp.com `
 
 
 
