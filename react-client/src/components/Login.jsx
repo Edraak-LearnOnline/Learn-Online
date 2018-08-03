@@ -1,15 +1,8 @@
 import React from 'react'
 import { Card, Grid, TextField, Button } from '@material-ui/core';
 import { GoogleLogin } from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
 
 
-const responseFacebook = (response) => {
-
-  response.name?
-  window.location.href = '/profile':
-  window.location.href = "/login"
-}
 
 const responseGoogle = (response) => {
   response.El?
@@ -86,25 +79,7 @@ class Login extends React.Component {
                 marginLeft:"10px"
               }}
             />
-            <FacebookLogin
-              appId="560666954348661"
-              autoLoad={false}
-              fields="name,email,picture"
-              callback={responseFacebook}
-              icon="fa-facebook"
-              style={{
-                backgroundColor: "blue",
-                color: "white",
-                borderRadius: 5,
-                outline: "none",
-                marginTop: "10px",
-                height:"5%"
-                
-              }}
-              
 
-
-            />
             <Grid item style={{ marginTop: "10px", marginBottom: "10px" }}>
               <TextField style={{ width: "100%", textAlign: "center" }}
                 onChange={this.onChange}
