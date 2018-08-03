@@ -175,7 +175,6 @@ class AddModal extends Component {
                                 </div>
                             </div>
                         </form>
-                        <img alt="" style={{ width: "30px", height: '30px' }} src={this.state.image} />
                         <Button variant="contained"
                             onClick={this.AddCourse}
                             color="primary">

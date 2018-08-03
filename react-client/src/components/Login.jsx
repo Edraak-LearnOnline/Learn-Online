@@ -4,7 +4,6 @@ import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
 
-
 const responseFacebook = (response) => {
 
   response.name?
@@ -20,7 +19,7 @@ const responseGoogle = (response) => {
 
 
 
-class Signup extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -88,7 +87,7 @@ class Signup extends React.Component {
               }}
             />
             <FacebookLogin
-              appId="560666954348661"
+              appId="2226011327657322"
               autoLoad={false}
               fields="name,email,picture"
               callback={responseFacebook}
@@ -136,4 +135,8 @@ class Signup extends React.Component {
     )
   }
 }
-export default Signup
+
+
+
+
+export default Login
