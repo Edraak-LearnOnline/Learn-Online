@@ -4,12 +4,22 @@ import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
 
+const responseFacebook = (response) => {
+
+  response.name?
+  window.location.href = '/profile':
+  window.location.href = "/login"
+}
+
+const responseGoogle = (response) => {
+  response.El?
+  window.location.href = '/profile':
+  window.location.href = "/login"  
+}
 
 
 
-
-
-class Signup extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -128,16 +138,5 @@ class Signup extends React.Component {
 
 
 
-const responseFacebook = (response) => {
 
-  response.name?
-  window.location.href = '/profile':
-  window.location.href = "/login"
-}
-
-const responseGoogle = (response) => {
-  response.El?
-  window.location.href = '/profile':
-  window.location.href = "/login"  
-}
-export default Signup
+export default Login
