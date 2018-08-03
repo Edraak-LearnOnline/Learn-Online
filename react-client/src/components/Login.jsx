@@ -1,10 +1,21 @@
 import React from 'react'
 import { Card, Grid, TextField, Button } from '@material-ui/core';
 import { GoogleLogin } from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 
+const responseFacebook = (response) => {
 
+  response.name?
+  window.location.href = '/profile':
+  window.location.href = "/login"
+}
 
+const responseGoogle = (response) => {
+  response.El?
+  window.location.href = '/profile':
+  window.location.href = "/login"  
+}
 
 
 
@@ -19,7 +30,6 @@ class Login extends React.Component {
     }
     this.onChange = this.onChange.bind(this)
     this.loginAdmin = this.loginAdmin.bind(this)
-    this.responseGoogle = this.responseGoogle.bind(this)
   }
   onChange(e) {
     this.setState({
@@ -45,11 +55,7 @@ class Login extends React.Component {
       }
     })
   }
- responseGoogle (response)  {
-  response.El?
-  window.location.href = '/profile':
-  window.location.href = "/login"  
-}
+
   render() {
     return (
       <div>
@@ -66,8 +72,8 @@ class Login extends React.Component {
             <GoogleLogin
               clientId="113021884886-314ovegh53pf00d99jn8moc2bj1la6sq.apps.googleusercontent.com"
               buttonText= "Login using Google"
-              onSuccess={this.responseGoogle}
-              onFailure={this.responseGoogle}
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
               style={{
                 width: "91%",
                 height: "50px",
@@ -80,7 +86,25 @@ class Login extends React.Component {
                 marginLeft:"10px"
               }}
             />
+            <FacebookLogin
+              appId="2226011327657322"
+              autoLoad={false}
+              fields="name,email,picture"
+              callback={responseFacebook}
+              icon="fa-facebook"
+              style={{
+                backgroundColor: "blue",
+                color: "white",
+                borderRadius: 5,
+                outline: "none",
+                marginTop: "10px",
+                height:"5%"
+                
+              }}
+              
 
+
+            />
             <Grid item style={{ marginTop: "10px", marginBottom: "10px" }}>
               <TextField style={{ width: "100%", textAlign: "center" }}
                 onChange={this.onChange}
