@@ -4,11 +4,7 @@ import { GoogleLogin } from 'react-google-login';
 
 
 
-const responseGoogle = (response) => {
-  response.El?
-  window.location.href = '/profile':
-  window.location.href = "/login"  
-}
+
 
 
 
@@ -23,6 +19,7 @@ class Login extends React.Component {
     }
     this.onChange = this.onChange.bind(this)
     this.loginAdmin = this.loginAdmin.bind(this)
+    this.responseGoogle = this.responseGoogle.bind(this)
   }
   onChange(e) {
     this.setState({
@@ -48,7 +45,11 @@ class Login extends React.Component {
       }
     })
   }
-
+ responseGoogle (response)  {
+  response.El?
+  window.location.href = '/profile':
+  window.location.href = "/login"  
+}
   render() {
     return (
       <div>
@@ -65,8 +66,8 @@ class Login extends React.Component {
             <GoogleLogin
               clientId="113021884886-314ovegh53pf00d99jn8moc2bj1la6sq.apps.googleusercontent.com"
               buttonText= "Login using Google"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
+              onSuccess={this.responseGoogle}
+              onFailure={this.responseGoogle}
               style={{
                 width: "91%",
                 height: "50px",
